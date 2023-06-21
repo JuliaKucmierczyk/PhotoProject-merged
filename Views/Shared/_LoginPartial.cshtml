@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using PhotoProject.Areas.Identity.Data
+
+@inject SignInManager<PhotoProjectUser> SignInManager
+@inject UserManager<PhotoProjectUser> UserManager
+
+<head>
+    <link rel="stylesheet" href="~/css/NavBarStyleSheet.css" asp-append-version="true" />
+</head>
+<ul class="navbar-nav settings">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item setin">
+            <img src="~/images/icons/settings.png" width="30px" height="30px" /><a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Settings</a>
+        </li>
+        <li class="nav-item logout">
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <img src="~/images/icons/logout.png" width="30px" height="30px" /><button id="logout" type="submit" class="nav-link btn btn-link text-dark logoutbtn">Logout</button>
+            </form>
+        </li>
+    }
+</ul>
+
+@*<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+        </li>
+        <li class="nav-item">
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
+</ul>*@

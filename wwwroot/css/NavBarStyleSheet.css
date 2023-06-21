@@ -1,0 +1,150 @@
+﻿#title2 {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+@font-face {
+    font-family: 'Rocher';
+    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+}
+
+.title2 {
+    font-family: 'Rocher';
+    font-size: 35px;
+}
+
+@font-palette-values --Title2 {
+    font-family: Rocher;
+    base-palette: 11;
+}
+
+.title2 {
+    font-palette: --Title2;
+}
+
+#navbartlo {
+    /*  background:-webkit-linear-gradient(bottom,#caf0f8,#8ECAE6,#FFB703,#FB8500);*/
+    background-image: linear-gradient(344deg, rgba(255,183,3,1) 0%, rgba(230,230,173,0.9) 29%, rgba(173,217,230,.9) 57%);
+}
+
+#logo {
+    margin-left: 120px;
+}
+
+#lists {
+    display: inherit;
+    margin-left: 50px;
+}
+
+.ul {
+    background-color: #FFB703;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
+    border: 0px;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.u1 {
+    background-image: linear-gradient(45deg, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+
+.u2 {
+    background-image: linear-gradient(45deg, #ed6ea0, #ec8c69, #f7186a, #FBB03B);
+    box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+
+.ul:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.ul:active {
+    transform: scale(0.95);
+}
+
+.settings {
+    margin-right: 100px;
+}
+
+.setin {
+    background-color: #FFB703;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
+    border: 0px;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    background-image: linear-gradient(45deg, #009245, #FCEE21, #00A8C5, #D9E021);
+    box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-right: 25px;
+}
+
+    .setin:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+    }
+
+.logout {
+    background-color: #FFB703;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
+    border: 0px;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    background-image: linear-gradient(45deg, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+    .logout:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+.logoutbtn {
+    font-weight: bold;
+}
+
+.itemek {
+    background-color: rgba(173,217,230,.9);
+    transition: 0.4s;
+    font-weight:bold;
+    text-align:center;
+}
+
+.itemek:hover {
+    background-color: rgba(255,183,3,1);
+    transition: 0.4s;
+    font-size:15px;
+}

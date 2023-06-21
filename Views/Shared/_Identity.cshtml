@@ -1,0 +1,51 @@
+﻿@*@using Microsoft.AspNetCore.Identity
+@inject UserManager<UserModel> UserManager;
+
+@if (User.Identity.IsAuthenticated) 
+
+{
+    if (User.IsInRole("ADMIN"))
+    {
+        <ul class="navbar-nav d-flex flex-row me-2">
+            <li class="nav-item dropdown align-content-center align-bottom">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-gear"></i> Admin Panel
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" asp-controller="User" asp-action="UserListAll"><i></i> Show all Users</a>
+                    <a class="dropdown-item" asp-controller="Order" asp-action="OrderListAll"><i></i> Show all Orders</a>
+                    <a class="dropdown-item" asp-controller="Movie" asp-action="Create"><i></i> Add new Movie</a>
+                    <a class="dropdown-item" asp-controller="Actor" asp-action="Create"><i></i> Add new Actor</a>
+                    <a class="dropdown-item" asp-controller="Producer" asp-action="Create"><i></i> Add new Producer</a>
+                </div>
+            </li>
+        </ul>
+    }
+    
+    <ul class="navbar-nav d-flex flex-row me-2">
+    <li class="nav-item dropdown align-content-center align-bottom">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="bi bi-gear"></i> Hello @UserManager.GetUserName(User)!
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" asp-controller="Order" asp-action="OrderList"><i></i> Orders</a>
+            <form asp-controller="User" asp-action="Logout">
+                <button class="dropdown-item">
+                    <i class=""></i> Log out
+                </button>
+            </form>
+        </div>
+    </li>
+    </ul>
+}
+else
+{
+<ul class="navbar-nav d-flex flex-row me-1">
+    <li class="nav-item me-3 me-lg-0">
+        <a class="nav-link" asp-controller="User" asp-action="Login"><i></i>log in</a>
+    </li>
+
+
+</ul>
+}
+*@

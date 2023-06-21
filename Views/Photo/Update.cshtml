@@ -1,0 +1,80 @@
+﻿@using PhotoProject.Data
+﻿@using Microsoft.AspNet.Identity
+
+@model PhotoModel;
+@{
+    ViewData["Title"] = "manage photo";
+}
+<head>
+    <link rel="stylesheet" href="~/css/UpdatePhotoStyleSheet.css" asp-append-version="true" />
+</head>
+
+ @if (User.Identity.GetUserId() == Model.AuthorId || (User.IsInRole("ADMIN")))
+    {
+<body >
+    <div class="row">
+        <div class="col-md-8 offset-2">
+
+            <div class="row">
+                <div class="col-md-8 offset-2 kontener">
+                    <form asp-action="Update">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <img src="~/images/icons/authorid.png" class="icons" /> <label asp-for="AuthorId" class="control-label"></label>
+                                    <input asp-for="AuthorId" class="form-control" />
+                                    <span asp-validation-for="AuthorId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <img src="~/images/icons/namecard.png" class="icons" /> <label asp-for="Name" class="control-label"></label>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <img src="~/images/icons/tags.png" class="icons" /> <label asp-for="Tags" class="control-label"></label>
+                                    <input asp-for="Tags" class="form-control" />
+                                    <span asp-validation-for="Tags" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <img src="~/images/icons/camera.png" class="icons" /> <label asp-for="Camera" class="control-label"></label>
+                                    <input asp-for="Camera" class="form-control" />
+                                    <span asp-validation-for="Camera" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <img src="~/images/icons/url.png" class="icons" /> <label asp-for="ImageURL" class="control-label"></label>
+                                    <input asp-for="ImageURL" class="form-control" />
+                                    <span asp-validation-for="ImageURL" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <img src="~/images/icons/details.png" class="icons" /> <label asp-for="Details" class="control-label"></label>
+                                    <input asp-for="Details" class="form-control" />
+                                    <span asp-validation-for="Details" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <img src="~/images/icons/access.png" class="icons" /> <label asp-for="Access" class="control-label"></label>
+                                    <select asp-for="Access" class="form-control" asp-items="Html.GetEnumSelectList<AccessLevel>()"></select>
+                                    <span asp-validation-for="Access" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="buttony">
+                            <input type="submit" value="Update" class="buttonsubmit" style="width: 7em" />
+                            <a class="buttonshowall" asp-action="Index" style="width: 7em">Show all</a>
+                            <form asp-action="DeleteConfirmed">
+                                <input asp-for="Id" hidden />
+                                <input type="submit" value="Delete" class="buttondelete" style="width: 7em" />
+                            </form>
+                        </div>                    
+                    </form>                    
+                </div>
+                <img src="~/images/icons/photoupdate.png" id="zdj" />
+            </div>
+        </div>
+    </div>
+</body>
+}

@@ -1,0 +1,38 @@
+﻿﻿@using Microsoft.AspNet.Identity
+@using PhotoProject.Data
+@model AlbumModel;
+
+@{
+    ViewData["Title"] = "Manage album";
+}
+@if (User.Identity.GetUserId() == Model.AuthorId || (User.IsInRole("ADMIN")))
+{
+    <body style="background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+        <div class="row" style="height: 1em;"></div>
+        <div class="row" style="row-gap: 2em; column-gap: 1em;">
+
+            <div class="form-group">
+                <label asp-for="AlbumsPhotos" class="control-label"></label>
+                <select asp-for="AlbumsPhotos" class="form-control" multiple asp-items="ViewBag.PhotoId"></select>
+                <span asp-validation-for="AlbumsPhotos" class="text-danger"></span>
+            </div>
+            }
+        </div>
+    </body>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

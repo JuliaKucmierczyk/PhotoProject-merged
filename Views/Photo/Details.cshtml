@@ -1,0 +1,91 @@
+﻿@using PhotoProject.Data
+﻿@using Microsoft.AspNet.Identity
+@model PhotoModel;
+@{
+    ViewData["Title"] = "Photo Details";
+}
+<head>
+    <link rel="stylesheet" href="~/css/ButtonsStyleSheet.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class=" col-xs-12  m-5" >
+        <div class="card mb-4 border border-dark">
+            <div class="card-header" style="background-color: rgb(173, 217, 230)">
+                <h5 class="card-title">@Model.Name</h5>
+            </div>
+            <div class="row g-0w">
+                <div class="col-sm-12 col-md-6">
+                    <div class="ratio ratio-1x1">
+                        <img src="@("~/images/"+Model.ImageName)" asp-append-version="true" alt="Photo" style=" object-fit: cover;"> 
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="card-body p-3 ">
+                        @*<p class="card-text">@Model.Details</p>
+                        <p class="card-text"><b>Camera:</b> @Model.Camera</p>
+                        <p class="card-text"><b>Access:</b> @Model.Access</p>
+                        <p class="card-text"><b>Author:</b> @Model.Author.Name</p>
+                        <p class="card-text"><b>Author:</b> @Model.Author.Id</p>
+                        <p class="card-text"><b>DownVotes:</b> @Model.DownVote</p>
+                        <p class="card-text"><b>UpVotes:</b> @Model.UpVote</p>
+                        <p class="card-text"><b>Tags:</b> @Model.Tags</p>
+                        <p class="card-text"><b>Name:</b> @Model.Name</p>
+                        <p class="card-text">
+                            <b>Albumy:</b>
+                            @foreach (var ap in Model.AlbumsPhotos)
+                            {
+                                @ap.Album.Name
+                            }
+                        </p>*@
+                        <p class="card-text"><b>Description: </b></p>
+                        <p style="word-break:break-all">@Model.Details</p>
+                        <p class="card-text"><b>Author: </b></p>
+                        <p style="word-break:break-all">@Model.Author.FirstName @Model.Author.LastName</p>
+                        <p class="card-text"><b>Camera: </b></p>
+                        <p style="word-break:break-all">@Model.Camera</p>
+                        <p class="card-text"><b>Tags: </b></p>
+                        <p style="word-break:break-all">@Model.Tags</p>
+                        <p class="card-text"><b>Access: </b>@Model.Access</p>
+                        <p class="card-text"><b>likes: </b>@Model.UpVote</p>
+                        <p class="card-text"><b>dislikes: </b>@Model.DownVote</p>
+@*                        <p class="card-text"><b>Komentarze:</b></p>*@
+@*                        @foreach (var ap in Model.Comments)
+                        {
+                            <p><b>@ap.Author.Name:</b> @ap.Comments</p>
+                        }*@
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="card-footer p-3" style="background-color: rgb(173, 217, 230)">
+                        <a class="btn buttony btn-primary" asp-action="Index">Show all Photos</a>
+                         @if (User.Identity.GetUserId() == Model.AuthorId || (User.IsInRole("ADMIN")))
+                            {
+                                <a class="btn buttony btn-primary" asp-action="Update" asp-route-id="@Model.Id">Manage</a>
+                            }
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a class="btn buttony btn-primary " asp-action="AddComment" asp-route-id="@Model.Id">
+                                Add Comment
+                            </a>
+                        }
+                        @if (User.Identity.GetUserId() != Model.AuthorId && User.Identity.IsAuthenticated)
+                        {
+                            <a class="btn btn-primary float-right" asp-action="Upvote" asp-route-id="@Model.Id">
+                                like
+                            </a>
+                            <a class="btn btn-primary float-right" asp-action="Downvote" asp-route-id="@Model.Id">
+                                dislike
+                            </a>
+                        }
+                        <a class="btn buttony btn-primary" href="@Url.Action("Download", "Photo", new { id = Model.Id })">Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+

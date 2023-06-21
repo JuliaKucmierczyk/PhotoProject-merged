@@ -1,0 +1,27 @@
+﻿@model IEnumerable<PhotoModel>
+@{
+    ViewData["Title"] = "Photos";
+}
+<head>
+    <link rel="stylesheet" href="~/css/ButtonsStyleSheet.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="pt-4 row d-flex justify-content-center" style="row-gap: 2em; column-gap: 2em;">
+        @foreach (var photo in Model)
+        {
+            if (photo.Access != PhotoProject.Data.AccessLevel.Private || User.Identity.GetUserId() == photo.AuthorId)
+            {
+                <div class="card shadow p-0 border border-dark" style="width: 18rem;">
+                    <img src="@("~/images/"+photo.ImageName)" class="card-img-top" asp-append-version="true" runat="server" style="height:15rem; object-fit:cover; background-color:rgb(173, 217, 230)">
+                <div class="card-body">
+                    <h4 class="card-title">@photo.Name </h4>
+                    <p class="card-text">@photo.ImageName</p>
+                    <a class="btn buttony btn-primary" asp-action="Details" asp-route-id="@photo.Id">
+                        <i class="bi bi-eye-fill"></i> Details
+                    </a>
+                </div>
+            </div>
+            }
+        }
+    </div>
+</body>

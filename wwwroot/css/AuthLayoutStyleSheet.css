@@ -1,0 +1,34 @@
+﻿body {
+    background-image: linear-gradient(344deg, rgba(255,183,3,1) 0%, rgba(230,230,173,0.9) 29%, rgba(173,217,230,.9) 57%);
+}
+#diver {
+    background-color: transparent;
+}
+
+#lg, #rg {
+    width: 50%;
+    text-align: center;
+    color:black;
+}
+
+#cardbody {
+    background: -webkit-linear-gradient(top,#caf0f8,#8ECAE6,#48cae4,#219EBC,#FFB703,#FB8500);
+    text-align: center;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-width:0px;
+    padding-bottom:0px;
+    height:60%
+}
+
+#headerbody{
+    background-color: #CAF0F8;
+    border-bottom-width:0px;
+    border-top-left-radius:15px;
+    border-top-right-radius:15px;
+    padding:15px;
+    padding-bottom: 5px;
+}
+
+
+

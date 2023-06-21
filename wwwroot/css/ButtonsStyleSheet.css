@@ -1,0 +1,56 @@
+﻿body {
+    background-image: linear-gradient(344deg, rgba(255,183,3,1) 0%, rgba(230,230,173,0.9) 29%, rgba(173,217,230,.9) 57%);
+}
+.buttony:hover {
+    background-color: yellow;
+    color:black;
+    transition:0.5s;
+}
+.buttony {
+    background-color: #023047;
+    color: white;
+    font-weight: 500;
+    border: none;
+    transition: 0.5s;
+}
+
+@font-face {
+    font-family: 'Rocher';
+    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+}
+
+.title {
+    font-family: 'Rocher';
+    font-size:70px;
+}
+
+@font-palette-values --Title {
+    font-family: Rocher;
+    base-palette: 11;
+}
+
+.title {
+    font-palette: --Title;
+}
+
+#container{
+    margin-left:-10%;
+    width:60%;
+    font-size:30px;
+    font-style:italic;
+}
+#header{
+    font-weight:bold;
+    font-size:75px;
+    color:red;
+    padding-bottom:40px;
+}
+
+#banned {
+    width: 500px;
+    height: 500px;
+    position:absolute;
+    left:55%;
+    top:140px;
+    z-index: -99;
+}

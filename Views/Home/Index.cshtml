@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>User Id : @ViewData["UserID"]</p>
+</div>
+*@
+<head>
+    <link rel="stylesheet" href="~/css/ButtonsStyleSheet.css" asp-append-version="true" />
+</head>
+<body style="background: rgb(255,183,3);
+background: linear-gradient(344deg, rgba(255,183,3,1) 0%, rgba(230,230,173,0.9) 29%, rgba(173,217,230,.9) 57%);">
+<div class="container pt-4 d-flex justify-content-center">
+    <div class="row">
+        <div class="col-sm">
+                <h1 class="display-3 pt-4" style="font-weight:700; color:#023047">
+                    Welcome to the <span class="title">PhotoProject</span>
+                </h1>
+            <p class="lead">Organize your photos and albums with ease!</p>
+            <div class="pt-5">
+                <h2>What You Can Do</h2>
+                <p>With our photo management app, you can:</p>
+                <ul >
+                    <li >Upload and store your photos securely</li>
+                    <li >Create albums to organize your photos</li>
+                    <li >Add descriptions and tags to your photos for easy searching</li>
+                    <li >View, edit, and delete your photos and albums</li>
+                    <li >Share your photos and albums with others</li>
+                    <li >Manage your account settings and privacy</li>
+                </ul>
+                <p>Get started today and bring order to your photo collection!</p>
+            </div>
+        </div>
+            <div class="col-sm">
+            <img src="~/images/hero.png" style="height:40em; object-fit:contain;" class="img-fluid" />
+            </div>
+       
+    </div>
+</div>
+    
+</body>

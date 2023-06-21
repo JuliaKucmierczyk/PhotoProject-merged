@@ -1,0 +1,55 @@
+﻿@using PhotoProject.Data
+@using PhotoProject.Data.ViewModels
+@model CommentModel
+@{
+    ViewData["Title"] = "Add photo";
+}
+
+<body style="background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="row">
+            <div class="col-md-8 offset-2">
+
+            <div class="row">
+                <div class="col-md-8 offset-2">
+                    <form asp-action="Add" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        
+                                    
+                                
+                                <div class="form-group" hidden>
+                                    <label asp-for="AuthorId" class="control-label"></label>
+                                    <input asp-for="AuthorId" class="form-control" value="@ViewBag.User" />
+                                    <span asp-validation-for="AuthorId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Comments" class="control-label"></label>
+                                    <input asp-for="Comments" rows="14" cols="10" class="form-control" style="width:500px; height:100px; word-break:break-all;"/>
+                                    <span asp-validation-for="Comments" class="text-danger"></span>
+                                </div>
+                                    <div class="form-group" hidden>
+                                    <label asp-for="PhotoId" class="control-label"></label>
+                                    <input asp-for="PhotoId" class="form-control" value="@ViewBag.Photo"/>
+                                    <span asp-validation-for="PhotoId" class="text-danger"></span>
+                                </div>
+                        
+
+                  
+                        <div class="col-md-4 offset-4 text-center">
+                            <div class="body" style="height: 1em"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Add" class="btn btn-success float-right" />
+                            <a class="btn btn-secondary" asp-controller="Photo" asp-action="Details" asp-route-id="@ViewBag.Photo">Return</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    }
+</body>

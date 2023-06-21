@@ -1,0 +1,33 @@
+﻿body {
+    background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+}
+.inputy {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.Button {
+    background: -webkit-linear-gradient(bottom,#8ECAE6,#219EBC);
+    width: 70%;
+    height: 70%;
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    border-radius: 25px;
+    margin-top: 45px;
+}
+.Button:hover {
+    background: -webkit-linear-gradient(bottom,#FFB703,#FB8500);
+    color: black;
+}
+
+#header {
+    font-size: 38px;
+    font-weight: bold;
+}

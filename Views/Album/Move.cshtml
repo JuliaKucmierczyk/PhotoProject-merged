@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNet.Identity
+﻿@using PhotoProject.Data;
+@using PhotoProject.Data.ViewModels;
+@model AlbumPhotoModel;
+@{
+    ViewData["Title"] = "move photos";
+}
+
+<body style="background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+    @if (User.Identity.GetUserId() == ViewBag.AuthorId || (User.IsInRole("ADMIN")))
+    {
+        <form action="Tescik">
+            <div class="form-group" hidden>
+            <input name="currentAlbumId" class="form-control" value="@ViewBag.CurrentAlbumId" />
+        </div>
+        <div style="height: 20px"></div>
+        <div class="form-group">
+            <select name="SelectedAlbumId" class="form-control" asp-items="ViewBag.AlbumsId"></select>
+        </div>
+        <div style="height: 20px"></div>
+        <div>
+            <select name="SelectedPhotosId" class="form-control" multiple asp-items="ViewBag.PhotosId"></select>
+        </div>
+        <div >
+            <input type="submit" value="test"  asp-action="Tescik" class="btn btn-success float-right" />
+        </div>
+    </form>
+    }
+</body>

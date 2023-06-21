@@ -1,0 +1,37 @@
+﻿﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<AlbumModel>
+@{
+    ViewData["Title"] = "Photos";
+}
+<head>
+    <link rel="stylesheet" href="~/css/ButtonsStyleSheet.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class="row d-flex justify-content-center" style="row-gap: 2em; column-gap: 1em;">
+        @foreach (var album in Model)
+        {
+            if (album.Access != PhotoProject.Data.AccessLevel.Private || User.Identity.GetUserId() == album.AuthorId)
+            {
+                <div class="card shadow p-0 border border-dark" style="width: 18rem;">
+                    <img src="@("~/album/"+album.ImageName)" asp-append-version="true" class="card-img-top" runat="server" style="height:15rem; object-fit:cover; background-color: rgb(173, 217, 230)">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">@album.Name</h4>
+                    <a class="btn buttony btn-primary"  asp-action="Photos" asp-route-id="@album.Id">
+                        <i class="bi bi-eye-fill"></i> Photos
+                    </a>
+                        @if (User.Identity.GetUserId() == album.AuthorId || (User.IsInRole("ADMIN")))
+                        {
+                            <a class="btn buttony" asp-action="Update" asp-route-id="@album.Id">
+                                <i class="bi bi-eye-fill"></i> Update
+                            </a>
+                            <a class="btn buttony " asp-action="Move" asp-route-id="@album.Id">
+                                <i class="bi bi-eye-fill"></i> Move Photos
+                            </a>
+                        }
+                    </div>
+            </div>
+            }
+        }
+    </div>
+</body>

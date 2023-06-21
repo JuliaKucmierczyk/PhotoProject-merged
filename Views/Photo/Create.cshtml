@@ -1,0 +1,106 @@
+﻿@using PhotoProject.Data
+@using PhotoProject.Data.ViewModels
+@model NewPhotoVM
+@{
+    ViewData["Title"] = "Add photo";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/CreatePhotoStyleSheet.css" asp-append-version="true" />
+</head>
+
+@if (User.Identity.IsAuthenticated){
+<body>
+    <div class="row">
+        <div class="col-md-8 offset-2">
+
+            <div class="row">
+                <div class="col-md-8 offset-2 kontener">
+                    <form asp-action="Add" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                @*<div class="form-group">
+                                    <img src="~/images/icons/imagefile.png" class="icons" />  <label asp-for="ImageFile" class="control-label"></label>
+
+                                    <div>
+                                        <input asp-for="ImageFile" accept="image/png,image/jpeg,image/jpg" type="file" id="file-input" />
+                                        <label for="file-input">
+                                            <i class="glyphicon glyphicon-open"></i>
+                                            &nbsp;Choose a file...
+                                        </label>
+                                    </div>
+                                    <span>
+                                        Chosen file:
+                                        <span id="file-name">None</span>
+                                    </span>
+                                    <script>
+                                        let inputFile = document.getElementById('file-input');
+                                        let fileNameField = document.getElementById('file-name');
+                                        inputFile.addEventListener('change', function (event) {
+                                            let uploadedFileName = event.target.files[0].name;
+                                            fileNameField.textContent = uploadedFileName;
+                                        })
+                                    </script>
+
+                                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                </div>*@
+                                    <div class="form-group">
+                                        <img src="~/images/icons/imagefile.png" class="icons" /> <label asp-for="ImageFile" class="control-label"></label>
+                                        <input asp-for="ImageFile" accept="image/png,image/jpeg,image/jpg" />
+                                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                    </div>
+                                <div class="form-group" hidden>
+                                    <img src="~/images/icons/authorid.png" class="icons" /> <label asp-for="AuthorId" class="control-label"></label>
+                                    <input asp-for="AuthorId" class="form-control" />
+                                    <span asp-validation-for="AuthorId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <img src="~/images/icons/namecard.png" class="icons" /> <label asp-for="Name" class="control-label"></label>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <img src="~/images/icons/tags.png" class="icons" /> <label asp-for="Tags" class="control-label"></label>
+                                    <input asp-for="Tags" class="form-control" />
+                                    <span asp-validation-for="Tags" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <img src="~/images/icons/camera.png" class="icons" /> <label asp-for="Camera" class="control-label"></label>
+                                    <input asp-for="Camera" class="form-control" />
+                                    <span asp-validation-for="Camera" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <img src="~/images/icons/details.png" class="icons" /> <label asp-for="Details" class="control-label"></label>
+                                    <input asp-for="Details" class="form-control" />
+                                    <span asp-validation-for="Details" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <img src="~/images/icons/access.png" class="icons" /> <label asp-for="Access" class="control-label"></label>
+                                    <select asp-for="Access" class="form-control" asp-items="Html.GetEnumSelectList<AccessLevel>()"></select>
+                                    <span asp-validation-for="Access" class="text-danger"></span>
+                                </div>
+                                <!-- Selection List-->
+                                <div class="form-group">
+                                    <img src="~/images/icons/id.png" class="icons" /> <label asp-for="AlbumsId" class="control-label"></label>
+                                    <label class="custom-selector">
+                                        <select asp-for="AlbumsId" class="form-control" multiple asp-items="ViewBag.AlbumId"></select>
+                                    </label>
+                                    <span asp-validation-for="AlbumsId" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="buttony">
+                            <input type="submit" value="Create" class="buttonsubmit" />
+                            <a class="buttonshowall" asp-action="Index">Show all</a>
+                        </div>
+                    </form>
+                </div>
+                <div id="zdj"><img src="~/images/icons/image2.png" width="600" height="600" /></div>
+            </div>
+        </div>
+    </div>
+</body>
+}
